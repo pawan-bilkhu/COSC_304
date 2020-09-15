@@ -1,6 +1,27 @@
-### Additional markdown resources:
+# Lecture 1
 
-<span style='color:'></span>
+# What is a Database?
+
+--------------
+
+- A database is a collection of logically related data for a particular domain.
+- A <span style='color:green'>database management system (DBMS) </span>is software designed for the creation and management of databases.
+  - <span style='color:yellow'>e.g. Oracle, DB2, Microsoft Access, MySQL, SQL Server, MongoDB</span>
+- Bottom line: A <span style='color:green'>database</span> is the <span style='color:yellow'>data</span> stored and a <span style='color:green'>database system </span> is the <span style='color:yellow'>software</span> that manages the data
+
+# Database Terminology
+
+----
+
+- A <span style='color:green'>data model</span> is a collection of concepts that is used to describe the structure of a database. E.g. relational, XML, graphs, objects, JSON
+  - <span style='color:yellow'>In the relational model, data is represented as tables and fields</span>
+- <span style='color:green'>Data Definition Language (DDL)</span> allows the user to create data structures in the data model used by the database. A <span style='color:green'>schema</span> is a description of the structure of the database and is maintained and stored in the <span style='color:green'>system catalogue</span>. The schema is <span style='color:green'>metadata</span>.
+  - <span style='color:yellow'>A schema contains structures, names, and types of data stored.</span>
+- Once a adatabse has been created using DDL, the user accesses data using a <span style='color:green'>Data Manipulation Language (DML)</span>.
+  - <span style='color:yellow'> The DML allows for the insertion, modification, retrieval, and deletion of data</span>.
+- SQL is a standard DDL and DML for the relational model.
+
+# Lecture 2
 
 # The Relational Model: Terminology
 
@@ -46,3 +67,20 @@ NOTE: ABSTRACT AS MUCH AS POSSIBLE ASSUME THE DATABASE CONTAINS INFORMATION ABOU
     - <span style='color:orange'><i>null</i> is not the same as zero or an empty string</span>
   - <span style='color:green'>Entity integrity constraint</span> - <span style='color:yellow'>No attribue of a primary key can be null (count rows)</span>
   - <span style='color:green'>Referential integrity constraing</span> - <span style='color:yellow'>If a foreign key exists in a relation, then the foreign key value must match a primary key value of a tuple in the referenced relation or be null</span> 
+
+# Lecture 3
+
+#Types of Joins
+
+----
+
+- The $\theta$-Join is a general join that allows any expression for condition F. However, there are more specialized joins that are frequentyl used
+- An <span style='color:green'>equijoin</span> only contains the equality operator (=) in formula $F$
+  - <span style='color:yellow'>e.g.</span> WorksOn $\bowtie_{\text{WorksOn.pno = Proj.pno}}$Proj
+- A <span style='color:green'>natural join</span> over two relations $R$ and $S$ denoted by $R \bowtie S$ is the equijoin of $R$ and $S$ over a set of attributes common to both $R$ and $S$
+  - <span style='color:yellow'>It removes the "extra copies" of the join attributes</span>
+  - <span style='color:yellow'>The attrivutes must have the same name in both relations</span>
+
+# Objectives
+
+- Given a relational schema and instance be able to translate english queries into relational algebra and show the resulting relation
