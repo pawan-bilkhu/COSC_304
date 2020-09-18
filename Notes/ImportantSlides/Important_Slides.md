@@ -84,3 +84,97 @@ NOTE: ABSTRACT AS MUCH AS POSSIBLE ASSUME THE DATABASE CONTAINS INFORMATION ABOU
 # Objectives
 
 - Given a relational schema and instance be able to translate english queries into relational algebra and show the resulting relation
+
+# Lecture 4
+
+# SQL CREATE TABLE
+
+----
+
+- The <span style='color:green'>CREATE TABLE</span> command is used to create a table in the database. A table consists of a table name and a set of fields with their name and data types
+
+- Example:
+
+  ~~~mysql
+  CREATE TABLE emp(
+  	eno	CHAR(5),
+  	ename VARCHAR(30) NOT NULL, //This means this field must always have a value
+  	bdate	DATE,
+  	title	CHAR(2),
+  	salary DECIMAL(9,2),
+  	supereno	CHAR(5),
+  	dno	CHAR(5),
+  	PRIMARY KEY (eno)
+  )
+  ~~~
+
+- Data Types:
+
+  - CHAR(5) - always 5 characters long
+  - VARCHAR(30) - up to 30 characters long
+  - DECIMAL(9,2) - 123456.99
+  - DATE - 1998/01/18
+
+# SQL CREATE TABLE Full Syntax
+
+---
+
+- Full syntax of CREATE TABLE statement
+
+  ```mysql
+  CREATE TABLE tableName (
+      { attrName attrType  [NOT NULL] [UNIQUE] [PRIMARY KEY]
+          [DEFAULT value] [CHECK (condition)] [, ...] }
+       [PRIMARY KEY (colList) [, ...]]
+       {[FOREIGN KEY (colList) REFERENCES tbl [(colList)]
+          [ON UPDATE action]
+          [ON DELETE action] [, ...] ] }
+       {[CHECK (condition)] }
+  );
+  ```
+
+# Adding Data using INSERT
+
+---
+
+- Insert a row using the INSERT command:
+
+  ```mysql
+  INSERT INTO emp VALUES ('E9','S. Smith','1975-03-05', 'SA',60000,'E8','D1')
+  ```
+
+  - Fields: eno, ename, bdate, title, salary, supereno, dno
+
+- If you do not give values for all fields in the order they are in the table, you must list the fields you are providing data for:
+
+  ```mysql
+  INSERT INTO emp(eno, ename, salary) VALUES ('E9','S. Smith',60000)
+  ```
+
+  - Note: If any columns are omitted from the list, they are set to NULL.
+
+# UPDATE Statement
+
+---
+
+- Updating existing rows using theUPDATEstatement. Examples:
+
+  -  <span style='color:yellow'>1) Increase all employee salaries by 10%</span>
+
+     ```mysql
+    UPDATE emp SET salary = salary*1.10;
+     ```
+
+    
+
+  -  <span style='color:yellow'>2)  Increase salary of employee E2 to $1 million and change his name:</span>
+
+    ```mysql
+    UPDATE emp SET salary = 1000000, name='Rich Guy' 
+    	WHERE eno = 'E2';
+    ```
+
+- Notes: 
+
+  -  <span style='color:yellow'>May change (SET) more than one value at a time. Separate by commas</span>
+  -  <span style='color:yellow'>Use WHERE to filter only the rows to update</span>
