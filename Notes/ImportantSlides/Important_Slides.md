@@ -163,7 +163,7 @@ NOTE: ABSTRACT AS MUCH AS POSSIBLE ASSUME THE DATABASE CONTAINS INFORMATION ABOU
 
      ```mysql
     UPDATE emp SET salary = salary*1.10;
-     ```
+    ```
 
     
 
@@ -178,3 +178,47 @@ NOTE: ABSTRACT AS MUCH AS POSSIBLE ASSUME THE DATABASE CONTAINS INFORMATION ABOU
 
   -  <span style='color:yellow'>May change (SET) more than one value at a time. Separate by commas</span>
   -  <span style='color:yellow'>Use WHERE to filter only the rows to update</span>
+
+# Lecture 5
+
+# SQL Queries using SELECT
+
+----
+
+- A query in SQL has the form:
+
+  ```mysql
+  SELECT (list of columns or expressions)
+  FROM (list of tables)
+  WHERE (filter conditions)
+  GROUP BY (columns)
+  ORDER BY (columns)
+  ```
+
+  
+
+- Notes:
+  - <span style='color:yellow'>1) Separate the list of columns/expressions and list of tables by </span><span style='color:green'>commas</span>
+  - <span style='color:yellow'>2) The "*" is used to select all columns</span>
+  - <span style='color:yellow'>3) Only SELECT required. FROM, WHERE, GROUP BY, ORDER BY are optional</span>
+
+
+
+# SQL and Relational Algebra
+
+---
+
+- The SELECT statement can be mapped directly to relational algebra
+  $$
+  \begin{align}
+  &\text{SELECT } A_1,A_2, ..., A_n \\
+  &\text{FROM } R_1, R_2, ..., R_m \\
+  &\text{WHERE } P\\\\
+  
+  \text{Is equivalent to:}\\\\
+  
+  &\Pi_{A_1,A_2,...,A_n}(\sigma_{p}(R_1 \times R_2 \times \cdots R_m))
+  
+  \end{align}
+  $$
+  
