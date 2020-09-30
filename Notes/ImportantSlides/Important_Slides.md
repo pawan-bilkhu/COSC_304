@@ -222,3 +222,21 @@ NOTE: ABSTRACT AS MUCH AS POSSIBLE ASSUME THE DATABASE CONTAINS INFORMATION ABOU
   \end{align}
   $$
   
+
+# Lecture 5 Part 2
+
+# SQL Queries using SELECT
+
+----
+
+- A query in SQL has the form:
+
+  ```mysql
+  SELECT (list of columns or expressions) FROM (list of tables)
+  WHERE (filter conditions)
+  GROUP BY (columns)
+  HAVING (group filter conditions) ORDER BY (columns)
+  LIMIT (count) OFFSET (start)
+  ```
+
+# 
